@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Rory Murphy</Authors>
+    <Copyright>Copyright © 2019</Copyright>
+    <Description>A package for translating LINQ queries written against a Target entity to be executed against a Source entity type. As an example use case, this allows users to create a types that abstract away details of persistence, while allowing queries against the facade to be translated to the data domain model and executed by a database's query provider.</Description>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/rorymurphy/Remapper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rorymurphy/Remapper</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

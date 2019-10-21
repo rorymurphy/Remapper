@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Remapper", "Remapper\Remapper.csproj", "{B28025E9-82B1-48F7-A7E4-A29391833BFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Remapper.Test", "Remapper.Test\Remapper.Test.csproj", "{A510404D-305E-49BB-936A-028AE807E945}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{039931D6-6C36-40AC-B4EF-E582E47B9163}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B28025E9-82B1-48F7-A7E4-A29391833BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28025E9-82B1-48F7-A7E4-A29391833BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28025E9-82B1-48F7-A7E4-A29391833BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28025E9-82B1-48F7-A7E4-A29391833BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A510404D-305E-49BB-936A-028AE807E945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A510404D-305E-49BB-936A-028AE807E945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A510404D-305E-49BB-936A-028AE807E945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A510404D-305E-49BB-936A-028AE807E945}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13540024-EFD8-4674-9155-E0358BDE5F2F}
+	EndGlobalSection
+EndGlobal
