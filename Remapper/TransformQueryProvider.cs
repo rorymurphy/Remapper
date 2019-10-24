@@ -10,6 +10,12 @@ namespace Remapper
 {
     public class TransformQueryProvider<TFrom, TTo> : IQueryProvider
     {
+        public TransformQueryProvider(Func<TFrom, TTo> transform, IQueryable<TFrom> innerQueryable) : this()
+        {
+            this.Transform = transform;
+            this.InnerQueryable = innerQueryable;
+        }
+
         public TransformQueryProvider()
         {
             this.Visitor = new TypeMapVisitor<TTo, TFrom>();
