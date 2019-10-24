@@ -7,23 +7,23 @@ However, this comes with the significant limitation that the application must st
 The code below, taken from the unit tests, demonstrates the capability. Here we have a list of ContentItem objects, however we want to query against them as though they are BlogPosts (where a BlogPost may be a subclass of ContentItem, but need not be). As the assertions demonstrate, the library successfully translates the query, retrieves the results, and uses the transformation function to create BlogPost objects only for the selected items.
 
 ```
-            var data = new List<ContentItem>();
-            for(int i = 0; i < 100; i++)
-            {
-                data.Add(new ContentItem(new Dictionary<string, object>() { { "blog-content", "text" + i } }) { Title = "Blog Post " + i, Id = Guid.NewGuid() });
-            }
+var data = new List<ContentItem>();
+for(int i = 0; i < 100; i++)
+{
+	data.Add(new ContentItem(new Dictionary<string, object>() { { "blog-content", "text" + i } }) { Title = "Blog Post " + i, Id = Guid.NewGuid() });
+}
 
-            var provider = new TransformQueryProvider<ContentItem, BlogPost>()
-            {
-                InnerQueryable = data.AsQueryable(),
-                Transform = ci => new BlogPost() { Id = ci.Id, Title = ci.Title, Content = (string)ci.Attributes["blog-content"] }
-            };
+var provider = new TransformQueryProvider<ContentItem, BlogPost>()
+{
+	InnerQueryable = data.AsQueryable(),
+	Transform = ci => new BlogPost() { Id = ci.Id, Title = ci.Title, Content = (string)ci.Attributes["blog-content"] }
+};
 
-            provider.AddMapping(b => b.Content, ci => (string)ci.Attributes["blog-content"]);
+provider.AddMapping(b => b.Content, ci => (string)ci.Attributes["blog-content"]);
 
-            var transformed = provider.CreateEmptyQuery();
-            
-            //Tests translation of a property and a method call
-            Assert.Equal("Blog Post 50", transformed.Single(bp => !string.IsNullOrEmpty(bp.Content) && bp.Content.Equals("text50")).Title);
-            Assert.Equal(100, transformed.Count());
+var transformed = provider.CreateEmptyQuery();
+
+//Tests translation of a property and a method call
+Assert.Equal("Blog Post 50", transformed.Single(bp => !string.IsNullOrEmpty(bp.Content) && bp.Content.Equals("text50")).Title);
+Assert.Equal(100, transformed.Count());
 ```
