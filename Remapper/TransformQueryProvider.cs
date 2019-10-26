@@ -16,7 +16,7 @@ namespace Remapper
             this.InnerQueryable = innerQueryable;
         }
 
-        public TransformQueryProvider()
+        protected TransformQueryProvider()
         {
             this.Visitor = new TypeMapVisitor<TTo, TFrom>();
         }
