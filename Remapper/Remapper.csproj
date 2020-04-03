@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/rorymurphy/Remapper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rorymurphy/Remapper</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
