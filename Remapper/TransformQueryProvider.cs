@@ -30,7 +30,7 @@ namespace Remapper
             };
         }
 
-        public IQueryable CreateQuery(System.Linq.Expressions.Expression expression)
+        public IQueryable CreateQuery(Expression expression)
         {
             return this.CreateQuery<object>(expression);
         }
@@ -135,7 +135,7 @@ namespace Remapper
             return result;
         }
 
-        public object Execute(System.Linq.Expressions.Expression expression)
+        public object Execute(Expression expression)
         {
             return this.Execute<object>(expression);
         }

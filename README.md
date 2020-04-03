@@ -4,7 +4,7 @@ Remapper is designed to enable simplicty in design of API entities while retaini
 
 However, this comes with the significant limitation that the application must statically map API calls to well-defined queries against the data object. Because the data model knows nothing about the API entity, we lose one of the most powerful features of LINQ & the Entity Framework - the ability to take an arbitrary query against an IQueryable and execute it where it will perform best. Remapper solves this problem by providing a generic translator that rewrites the query's expression tree and passes the translated tree through to a backing IQueryProvider (e.g. a Database connector).
 
-The code below, taken from the unit tests, demonstrates the capability. Here we have a list of ContentItem objects, however we want to query against them as though they are BlogPosts (where a BlogPost may be a subclass of ContentItem, but need not be). As the assertions demonstrate, the library successfully translates the query, retrieves the results, and uses the transformation function to create BlogPost objects only for the selected items.
+The code below demonstrates the sort of mappings that are possible. Here we have a list of ContentItem objects, however we want to query against them as though they are BlogPosts (where a BlogPost may be a subclass of ContentItem, but need not be). As the assertions demonstrate, the library successfully translates the query, retrieves the results, and uses the transformation function to create BlogPost objects only for the selected items.
 
 ```
 var data = new List<ContentItem>();

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Remapper
 {
-    public class TransformQueryable<T> : IQueryable<T>
+    public class TransformQueryable<T> : IOrderedQueryable<T>
     {
         protected IEnumerable<T> _executedQuery = null;
         public IEnumerator<T> GetEnumerator()
