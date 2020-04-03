@@ -14,11 +14,10 @@ namespace Remapper.Test.DataAccess
         {
             this._context = context;
 
-            var provider = new TransformQueryProvider<ProductReviewDTO, ProductReview>()
-            {
-                InnerQueryable = context.ProductReviewDTOs,
-                Transform = dto => new ProductReview() { Id = dto.Id, Rating = dto.Rating, Timestamp = dto.ContentItem.Timestamp, Author = dto.ContentItem.Author, Review = dto.Review }
-            };
+            var provider = new TransformQueryProvider<ProductReviewDTO, ProductReview>(
+                dto => new ProductReview() { Id = dto.Id, Rating = dto.Rating, Timestamp = dto.ContentItem.Timestamp, Author = dto.ContentItem.Author, Review = dto.Review },
+                context.ProductReviewDTOs
+            );
             provider.AddMapping(b => b.Id, dto => dto.Id);
             provider.AddMapping(b => b.Timestamp, dto => dto.ContentItem.Timestamp);
             provider.AddMapping(b => b.Author, dto => dto.ContentItem.Author);

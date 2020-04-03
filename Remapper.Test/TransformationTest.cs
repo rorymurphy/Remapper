@@ -57,11 +57,10 @@ namespace Remapper.Test
             mockQueryable.Setup(q => q.GetEnumerator()).Returns(() => mockProvider.Object.Execute<IEnumerable<ContentItemDTO>>(mockQueryable.Object.Expression).GetEnumerator());
             mockQueryable.As<IEnumerable>().Setup(q => q.GetEnumerator()).Returns(() => mockProvider.Object.Execute<IEnumerable<ContentItemDTO>>(mockQueryable.Object.Expression).GetEnumerator());
 
-            var provider = new TransformQueryProvider<ContentItemDTO, BlogPost>()
-            {
-                InnerQueryable = mockQueryable.Object,
-                Transform = dto => new BlogPost() { Id = dto.Id, Title = dto.BlogPost.Title, Timestamp = dto.Timestamp, Author = dto.Author, Content = dto.BlogPost.Content }
-            };
+            var provider = new TransformQueryProvider<ContentItemDTO, BlogPost>(
+                dto => new BlogPost() { Id = dto.Id, Title = dto.BlogPost.Title, Timestamp = dto.Timestamp, Author = dto.Author, Content = dto.BlogPost.Content },
+                mockQueryable.Object
+            );
             provider.AddMapping(b => b.Id, dto => dto.Id);
             provider.AddMapping(b => b.Content, dto => dto.BlogPost.Content);
             provider.AddMapping(b => b.Title, dto => dto.BlogPost.Title);
